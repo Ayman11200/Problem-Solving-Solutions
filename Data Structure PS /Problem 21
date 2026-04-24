@@ -1,0 +1,42 @@
+using System;
+using System.Collections.Generic;
+
+
+class PalindromeChecker
+{
+    static bool IsPalindrome(string input)
+    {
+        Stack<char> stack = new Stack<char>();
+
+        foreach (char c in input)
+        {
+            stack.Push(c);
+        }
+
+        foreach (char c in input)
+        {
+            if (stack.Pop() != c)
+            {
+                return false; 
+            }
+        }
+
+
+        return true;
+    }
+
+
+    static void Main()
+    {
+        string input = "madam";
+        Console.WriteLine($"Is \"{input}\" a palindrome? {IsPalindrome(input)}");
+
+
+        input = "hello";
+        Console.WriteLine($"Is \"{input}\" a palindrome? {IsPalindrome(input)}");
+
+
+        Console.ReadKey();
+
+    }
+}
